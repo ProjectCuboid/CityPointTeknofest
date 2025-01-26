@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Server</title>
+</head>
+<body>
+    <h1>Admin Server</h1>
+
+    <!-- Admin Login -->
+    <div id="login-section">
+        <h2>Admin Login</h2>
+        <input type="password" id="admin-password" placeholder="Enter Admin Password">
+        <button onclick="adminLogin()">Login</button>
+    </div>
+
+    <!-- Admin Functions -->
+    <div id="admin-section" style="display: none;">
+        <h2>Admin Panel</h2>
+        <button onclick="fetchUsers()">Load All Users</button>
+        <div id="users-list"></div>
+
+        <!-- Form to update user points -->
+        <h3>Update User Points</h3>
+        <input type="text" id="uid-input" placeholder="User UID">
+        <input type="number" id="points-input" placeholder="New Points">
+        <button onclick="updatePoints()">Update Points</button>
+    </div>
+
+    <script>
+        let adminToken = null;
+
+        // Admin login function
+        async function adminLogin() {
+            const password = document.getElementById("admin-password").value;
+
+            const response = await fetch("/api/admin/login", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ password }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                adminToken = data.token;
+
+                // Show the admin section
+                document.getElementById("login-section").style.display = "none";
+                document.getElementById("admin-section").style.display = "block";
+            } else {
+                alert("Invalid admin password!");
+            }
+        }
+
+        // Fetch users
+        async function fetchUsers() {
+            if (!adminToken) {
+                alert("Unauthorized access!");
+                return;
+            }
+
+            const response = await fetch("/api/admin/users");
+            const users = await response.json();
+            const usersList = document.getElementById("users-list");
+            usersList.innerHTML = "<pre>" + JSON.stringify(users, null, 4) + "</pre>";
+        }
+
+        // Update points
+        async function updatePoints() {
+            const uid = document.getElementById("uid-input").value;
+            const points = parseInt(document.getElementById("points-input").value);
+
+            if (!adminToken || !uid || isNaN(points)) {
+                alert("Invalid input or unauthorized access!");
+                return;
+            }
+
+            const response = await fetch("/api/admin/update_points", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ token: adminToken, uid, points }),
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                alert(data.message);
+                fetchUsers(); // Refresh user list
+            } else {
+                const error = await response.json();
+                alert(`Error: ${error.error}`);
+            }
+        }
+    </script>
+</body>
+</html>
