@@ -56,7 +56,7 @@ def protected_admin_route():
 def signup_page():
     return render_template("client/signup.html")
 
-@app.route("/login")
+@app.route("/")
 def login_page():
     return render_template("client/login.html")
 
@@ -129,4 +129,4 @@ def get_users():
     return jsonify(users_db)
 
 if __name__ == "__main__":
-    app.run(debug=false, host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False)
