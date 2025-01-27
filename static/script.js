@@ -38,3 +38,16 @@ async function login() {
         alert(`Error: ${error.error}`);
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const switchModeButton = document.getElementById("switch-mode");
+
+    switchModeButton.addEventListener("click", function () {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        if (currentTheme === "dark") {
+            document.documentElement.removeAttribute("data-theme");
+        } else {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    });
+});
