@@ -1,167 +1,165 @@
-        #cookie {
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Sign Up</title>
-                <script src="/static/script.js" defer></script>
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-            </head>
-            <body>
-                <!-- Sign-up Form -->
-                <div class="form-container" id="signup-form">
-                    <h1>Join us!</h1>
-                    <input type="text" id="signup-uid" placeholder="Username">
-                    <input type="password" id="signup-password" placeholder="Set Password">
-                    <button onclick="signup()" id="signup-button">Sign Up</button>
-                    <p>Already have an account? <a href="/">Login here</a></p>
-                    <button id="switch-sun">
-                        <svg id="sun-icon" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                          <path fill-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3ZM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414L6.343 4.929Zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H3Zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2ZM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414Zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Z" clip-rule="evenodd"/>
-                        </svg>
-                    </button>
-                    <button id="switch-moon">
-                        <svg id="moon-icon" class="w-6 h-6 text-gray-800 dark:text-white hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                          <path fill-rule="evenodd" d="M11.675 2.015a.998.998 0 0 0-.403.011C6.09 2.4 2 6.722 2 12c0 5.523 4.477 10 10 10 4.356 0 8.058-2.784 9.43-6.667a1 1 0 0 0-1.02-1.33c-.08.006-.105.005-.127.005h-.001l-.028-.002A5.227 5.227 0 0 0 20 14a8 8 0 0 1-8-8c0-.952.121-1.752.404-2.558a.996.996 0 0 0 .096-.428V3a1 1 0 0 0-.825-.985Z" clip-rule="evenodd"/>
-                        </svg>
-                      </button>
-                </div>
-            
-                <div id="cookie-banner">
-                    <p> We use cookies to enhance your experience. Do you accept cookies? </p>
-                    <button onclick="acceptCookies()" id="cookie">Accept</button>
-                    <button onclick="declineCookies()" id="cookie">Decline</button>
-                </div>
-            
-            
-                <style>
-                    #cookie {
-                        height: 50px;
-                        border-radius: 5px;
-                        margin: 10px;
-                        z-index: 1001; /* Ensure the icons are above other elements */
-                    }
-                    #switch-moon, #switch-sun {
-                        position: fixed; /* Make the buttons fixed to the screen */
-                        top: 10px; /* Adjust top position */
-                        width: 50px;
-                        height: 50px;
-                        border-radius: 50%;
-                        margin: 10px;
-                        z-index: 1000; /* Ensure the icons are above other elements */
-                    }
-            
-                    #switch-sun {
-                        right: 65px; /* Position the sun icon near the right */
-                    }
-            
-                    #switch-moon {
-                        right: 12.5px; /* Position the moon icon slightly closer to the right */
-                    }
-            
-                    #signup-button {
-                        width: 30%;
-                        border-radius: 5px;
-                        margin-left: 30px;
-                    }
-                    :root {
-                        --background-color: #ffffff;
-                        --text-color: #000000;
-                        --input-bg-color: #ffffff;
-                        --input-border-color: #ddd;
-                        --button-bg-color: #007BFF;
-                        --button-text-color: #ffffff;
-                        --link-color: #007BFF;
-                    }
-            
-                    body {
-                        background-color: var(--background-color);
-                        color: var(--text-color);
-                        font-family: "Poppins", serif;
-                        transition: background-color 0.3s, color 0.3s;
-                    }
-            
-                    p {
-                        font-family: "Poppins", serif;
-                        font-weight: 500;
-                        font-size: 14px;
-                    }
-            
-                    h1 {
-                        font-family: "Poppins", serif;
-                        font-weight: 800;
-                        font-style: bold;
-                        font-size: 46px;
-                    }
-            
-                    input[type="text"],
-                    input[type="password"] {
-                        width: 60%;
-                        padding: 10px;
-                        margin: 10px 0;
-                        border: 1px solid var(--input-border-color);
-                        border-radius: 5px;
-                        font-size: 14px;
-                        background-color: var(--input-bg-color);
-                        color: var(--text-color);
-                        box-shadow: 5px 5px 7px aqua;
-                    }
-            
-                    button {
-                        padding: 10px;
-                        background-color: var(--button-bg-color);
-                        color: var(--button-text-color);
-                        border: none;
-                        font-size: 16px;
-                        cursor: pointer;
-                        margin-top: 10px;
-                        transform: scale(1);
-                        box-shadow: 5px 5px 7px aqua;
-                    }
-            
-                    button:hover {
-                        background-color: #0056b3;
-                        transform: scale(1.05);
-                    }
-            
-                    p a {
-                        color: var(--link-color);
-                        text-decoration: none;
-                    }
-            
-                    p a:hover {
-                        text-decoration: underline;
-                    }
-            
-                    @media (max-width: 400px) {
-                        .form-container {
-                            padding: 15px;
-                        }
-            
-                        button {
-                            font-size: 14px;
-                        }
-            
-                        input[type="text"],
-                        input[type="password"] {
-                            font-size: 12px;
-                        }
-                    }
-            
-                    /* Dark mode styles */
-                    [data-theme="dark"] {
-                        --background-color: #121212;
-                        --text-color: #ffffff;
-                        --input-bg-color: #333333;
-                        --input-border-color: #444444;
-                        --button-bg-color: #4444ff;
-                        --button-text-color: #ffffff;
-                        --link-color: #4fa3ff;
-                    }
-            
-                </style>
-            </body>
-            </html>
-            
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="/static/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sign-up Form -->
+    <div class="form-container" id="signup-form">
+        <h1>Join us!</h1>
+        <input type="text" id="signup-uid" placeholder="Username">
+        <input type="password" id="signup-password" placeholder="Set Password">
+        <button onclick="signup()" id="signup-button">Sign Up</button>
+        <p>Already have an account? <a href="/">Login here</a></p>
+        <button id="switch-sun">
+            <svg id="sun-icon" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3ZM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414L6.343 4.929Zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H3Zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2ZM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414Zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Z" clip-rule="evenodd"/>
+            </svg>
+        </button>
+        <button id="switch-moon">
+            <svg id="moon-icon" class="w-6 h-6 text-gray-800 dark:text-white hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M11.675 2.015a.998.998 0 0 0-.403.011C6.09 2.4 2 6.722 2 12c0 5.523 4.477 10 10 10 4.356 0 8.058-2.784 9.43-6.667a1 1 0 0 0-1.02-1.33c-.08.006-.105.005-.127.005h-.001l-.028-.002A5.227 5.227 0 0 0 20 14a8 8 0 0 1-8-8c0-.952.121-1.752.404-2.558a.996.996 0 0 0 .096-.428V3a1 1 0 0 0-.825-.985Z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+    </div>
+
+    <div id="cookie-banner" style="border: #000000;">
+        <p> We use cookies to enhance your experience. Do you accept cookies? </p>
+        <button onclick="acceptCookies()" class="cookie">Accept</button>
+        <button onclick="declineCookies()" class="cookie">Decline</button>
+    </div>    
+
+
+    <style>
+        .cookie {
+            height: 50px;
+            border-radius: 5px;
+            margin: 10px;
+            z-index: 1001; /* Ensure the icons are above other elements */
+        }
+        #switch-moon, #switch-sun {
+            position: fixed; /* Make the buttons fixed to the screen */
+            top: 10px; /* Adjust top position */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 10px;
+            z-index: 1000; /* Ensure the icons are above other elements */
+        }
+
+        #switch-sun {
+            right: 65px; /* Position the sun icon near the right */
+        }
+
+        #switch-moon {
+            right: 12.5px; /* Position the moon icon slightly closer to the right */
+        }
+
+        #signup-button {
+            width: 30%;
+            border-radius: 5px;
+            margin-left: 30px;
+        }
+        :root {
+            --background-color: #ffffff;
+            --text-color: #000000;
+            --input-bg-color: #ffffff;
+            --input-border-color: #ddd;
+            --button-bg-color: #007BFF;
+            --button-text-color: #ffffff;
+            --link-color: #007BFF;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            font-family: "Poppins", serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        p {
+            font-family: "Poppins", serif;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        h1 {
+            font-family: "Poppins", serif;
+            font-weight: 800;
+            font-style: bold;
+            font-size: 46px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            font-size: 14px;
+            background-color: var(--input-bg-color);
+            color: var(--text-color);
+            box-shadow: 5px 5px 7px aqua;
+        }
+
+        button {
+            padding: 10px;
+            background-color: var(--button-bg-color);
+            color: var(--button-text-color);
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            transform: scale(1);
+            box-shadow: 5px 5px 7px aqua;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        p a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        p a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 400px) {
+            .form-container {
+                padding: 15px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+
+            input[type="text"],
+            input[type="password"] {
+                font-size: 12px;
+            }
+        }
+
+        /* Dark mode styles */
+        [data-theme="dark"] {
+            --background-color: #121212;
+            --text-color: #ffffff;
+            --input-bg-color: #333333;
+            --input-border-color: #444444;
+            --button-bg-color: #4444ff;
+            --button-text-color: #ffffff;
+            --link-color: #4fa3ff;
+        }
+
+    </style>
+</body>
+</html>
