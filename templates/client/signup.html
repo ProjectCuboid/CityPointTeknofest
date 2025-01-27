@@ -28,6 +28,14 @@
           </button>
     </div>
 
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" style="display: none; position: fixed; bottom: 0; width: 100%; background: #f4f4f4; color: #000; text-align: center; padding: 10px; box-shadow: 0 -2px 5px rgba(0,0,0,0.2); z-index: 1000;">
+        <p style="margin: 0; font-family: Arial, sans-serif;">We use cookies to enhance your experience. Do you accept cookies?</p>
+        <button onclick="acceptCookies()" style="margin: 5px; padding: 5px 10px; background: #28a745; color: #fff; border: none; cursor: pointer; border-radius: 4px;">Accept</button>
+        <button onclick="declineCookies()" style="margin: 5px; padding: 5px 10px; background: #dc3545; color: #fff; border: none; cursor: pointer; border-radius: 4px;">Decline</button>
+    </div>
+
+
     <style>
         
         #switch-moon, #switch-sun {
