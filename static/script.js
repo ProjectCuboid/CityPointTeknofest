@@ -40,14 +40,12 @@ async function login() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    const switchModeButton = document.getElementById("switch-mode");
-
-    switchModeButton.addEventListener("click", function () {
-        const currentTheme = document.documentElement.getAttribute("data-theme");
-        if (currentTheme === "dark") {
-            document.documentElement.removeAttribute("data-theme");
-        } else {
-            document.documentElement.setAttribute("data-theme", "dark");
-        }
+    const switchModeButtonSun = document.getElementById("switch-sun");
+    const switchModeButtonMoon = document.getElementById("switch-moon");
+    switchModeButtonSun.addEventListener("click", function () {
+        document.documentElement.removeAttribute("data-theme");
+    });
+    switchModeButtonMoon.addEventListener("click", function () {
+        document.documentElement.setAttribute("data-theme", "dark");
     });
 });

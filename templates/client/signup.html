@@ -14,12 +14,45 @@
         <h2>Sign Up</h2>
         <input type="text" id="signup-uid" placeholder="Username">
         <input type="password" id="signup-password" placeholder="Set Password">
-        <button onclick="signup()">Sign Up</button>
+        <button onclick="signup()" id="signup-button">Sign Up</button>
         <p>Already have an account? <a href="/">Login here</a></p>
-        <button id="switch-mode">Switch to Dark Mode</button>
+        <button id="switch-sun">
+            <svg id="sun-icon" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3ZM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414L6.343 4.929Zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H3Zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2ZM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414Zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Z" clip-rule="evenodd"/>
+            </svg>
+        </button>
+        <button id="switch-moon">
+            <svg id="moon-icon" class="w-6 h-6 text-gray-800 dark:text-white hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" d="M11.675 2.015a.998.998 0 0 0-.403.011C6.09 2.4 2 6.722 2 12c0 5.523 4.477 10 10 10 4.356 0 8.058-2.784 9.43-6.667a1 1 0 0 0-1.02-1.33c-.08.006-.105.005-.127.005h-.001l-.028-.002A5.227 5.227 0 0 0 20 14a8 8 0 0 1-8-8c0-.952.121-1.752.404-2.558a.996.996 0 0 0 .096-.428V3a1 1 0 0 0-.825-.985Z" clip-rule="evenodd"/>
+            </svg>
+          </button>
     </div>
 
     <style>
+
+        #switch-moon, #switch-sun {
+            position: fixed; /* Make the buttons fixed to the screen */
+            top: 10px; /* Adjust top position */
+            width: 50px;
+            height: 50px;
+            border-radius: 40%;
+            margin: 10px;
+            z-index: 1000; /* Ensure the icons are above other elements */
+        }
+
+        #switch-sun {
+            right: 65px; /* Position the sun icon near the right */
+        }
+
+        #switch-moon {
+            right: 12.5px; /* Position the moon icon slightly closer to the right */
+        }
+
+        #signup-button {
+            width: 30%;
+            border-radius: 5px;
+            margin-left: 30px;
+        }
         :root {
             --background-color: #ffffff;
             --text-color: #000000;
@@ -51,7 +84,7 @@
 
         input[type="text"],
         input[type="password"] {
-            width: 100%;
+            width: 60%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid var(--input-border-color);
@@ -62,19 +95,19 @@
         }
 
         button {
-            width: 100%;
             padding: 10px;
             background-color: var(--button-bg-color);
             color: var(--button-text-color);
             border: none;
-            border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
             margin-top: 10px;
+            transform: scale(1);
         }
 
         button:hover {
             background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         p a {
