@@ -1,0 +1,91 @@
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --input-bg-color: #ffffff;
+    --input-border-color: #ddd;
+    --button-bg-color: #007BFF;
+    --button-text-color: #ffffff;
+    --link-color: #007BFF;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Poppins", serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+p {
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+h2 {
+    font-family: "Poppins", serif;
+    font-weight: 800;
+    font-style: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 400px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        font-size: 12px;
+    }
+}
+
+/* Dark mode styles */
+[data-theme="dark"] {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --input-bg-color: #333333;
+    --input-border-color: #444444;
+    --button-bg-color: #4444ff;
+    --button-text-color: #ffffff;
+    --link-color: #4fa3ff;
+}
