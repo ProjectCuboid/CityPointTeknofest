@@ -11,6 +11,7 @@ async function signup() {
     if (response.ok) {
         const data = await response.json();
         alert(`Signup successful! Your UID: ${data.uid}`);
+        window.location.href = "/client"
     } else {
         const error = await response.json();
         alert(`Error: ${error.error}`);
