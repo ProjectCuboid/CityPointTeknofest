@@ -11,7 +11,7 @@
 <body>
     <!-- Sign-up Form -->
     <div class="form-container" id="signup-form">
-        <h2>Sign Up</h2>
+        <h1>Join us!</h1>
         <input type="text" id="signup-uid" placeholder="Username">
         <input type="password" id="signup-password" placeholder="Set Password">
         <button onclick="signup()" id="signup-button">Sign Up</button>
@@ -29,13 +29,13 @@
     </div>
 
     <style>
-
+        
         #switch-moon, #switch-sun {
             position: fixed; /* Make the buttons fixed to the screen */
             top: 10px; /* Adjust top position */
             width: 50px;
             height: 50px;
-            border-radius: 50%;
+            border-radius: 40%;
             margin: 10px;
             z-index: 1000; /* Ensure the icons are above other elements */
         }
@@ -76,10 +76,11 @@
             font-size: 14px;
         }
 
-        h2 {
+        h1 {
             font-family: "Poppins", serif;
             font-weight: 800;
             font-style: bold;
+            font-size: 46px;
         }
 
         input[type="text"],
@@ -92,6 +93,7 @@
             font-size: 14px;
             background-color: var(--input-bg-color);
             color: var(--text-color);
+            box-shadow: 5px 5px 7px aqua;
         }
 
         button {
@@ -103,6 +105,7 @@
             cursor: pointer;
             margin-top: 10px;
             transform: scale(1);
+            box-shadow: 5px 5px 7px aqua;
         }
 
         button:hover {
