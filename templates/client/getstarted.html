@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="sections" id="section-1">
+        <header>
+            <h2>What we are doing?</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nostrum nulla tempore, at eos porro pariatur quidem odit consequatur earum, quo eum esse eligendi vero error est harum nemo. Veniam.</p>
+        </header>
+        <div id="ab"></div>
+    </section>
+    <section class="sections" id="section-2">
+        <header>
+            <h2>How you can join us in our journey?</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
+        </header>
+        <div id="bc"></div>
+    </section>
+    <section class="sections" id="section-3">
+        <header>
+            <h2>Get started</h2>
+            <button id="join-us">Join us now!</button>
+        </header>
+    </section>
+</body>
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #1E1E2F;
+        color: #EAEAEA;
+        line-height: 1.6;
+    }
+
+    h2 {
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #ffffff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 1rem;
+        color: #CCCCCC;
+    }
+
+    .sections {
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    #section-1 {
+        height: 40rem;
+        background: linear-gradient(135deg, #3B6064, #87BBA2);
+        color: #F7F9F9;
+        --mask:
+            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
+            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+    }
+
+    #section-2 {
+        height: 40rem;
+        background: linear-gradient(135deg, #6D597A, #B56576);
+        color: #FFF9FB;
+        --mask:
+            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
+            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+    }
+
+    #section-3 {
+        height: 20rem;
+        background: linear-gradient(135deg, #DDA15E, #F4A261);
+        color: #FFF4E6;
+        --mask:
+            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
+            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+    }
+
+    button {
+        padding: 15px 30px;
+        background-color: #F28482;
+        color: #ffffff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #EF476F;
+        transform: scale(1.05);
+        box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 10px 20px;
+        }
+    }
+</style>
+</html>
