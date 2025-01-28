@@ -1,3 +1,7 @@
+function acceptCookies() {
+    localStorage.setItem("cookieConsent", "accepted");
+}
+
 async function signup() {
     acceptCookies()
     const uid = document.getElementById("signup-uid").value;  // Get UID from the input field
@@ -51,7 +55,3 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.setAttribute("data-theme", "dark");
     });
 });
-
-function acceptCookies() {
-    localStorage.setItem("cookieConsent", "accepted");
-}
