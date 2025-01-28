@@ -10,12 +10,16 @@
 </head>
 <body>
     <!-- Sign-up Form -->
-    <div class="form-container" id="signup-form">
-        <h1>Join us!</h1>
-        <input type="text" id="signup-uid" placeholder="Username">
-        <input type="password" id="signup-password" placeholder="Set Password">
-        <button onclick="signup()" id="signup-button">Sign Up</button>
-        <p>Already have an account? <a href="/">Login here</a></p>
+        <div class="form-container" id="signup-form">
+            <h1>Sign Up</h1>
+            <div class="input-container">
+                <input type="text" id="signup-uid" placeholder="Username">
+                <input type="password" id="signup-password" placeholder="Set Password">
+                <button onclick="signup()" id="signup-button">Sign Up</button>
+            </div>
+            <p>Already have an account? <a href="/">Login here</a></p>
+        </div>
+        
         <button id="switch-sun">
             <svg id="sun-icon" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
               <path fill-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3ZM6.343 4.929A1 1 0 0 0 4.93 6.343l1.414 1.414a1 1 0 0 0 1.414-1.414L6.343 4.929Zm12.728 1.414a1 1 0 0 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 1.414 1.414l1.414-1.414ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm-9 4a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H3Zm16 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2ZM7.757 17.657a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414Zm9.9-1.414a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM13 19a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0v-2Z" clip-rule="evenodd"/>
@@ -28,7 +32,7 @@
           </button>
     </div>
 
-    <div id="cookie-banner" style="border: #000000;">
+    <div id="cookie-banner">
         <p> We use cookies to enhance your experience. Do you accept cookies? </p>
         <button onclick="acceptCookies()" class="cookie">Accept</button>
         <button onclick="declineCookies()" class="cookie">Decline</button>
@@ -36,6 +40,21 @@
 
 
     <style>
+        body {
+            text-align: center;
+            align-items: center;
+        }
+        #cookie-banner {
+            align-self: center;
+            position: relative;
+            top: 20vh;
+            text-align: center;
+            background-color: var(--cookie-color);
+            box-shadow: 5px 5px 7px var(--shadow-color) inset;
+            margin: 0px;
+            height: 120px;
+
+        }
         .cookie {
             height: 50px;
             border-radius: 5px;
@@ -60,11 +79,19 @@
             right: 12.5px; /* Position the moon icon slightly closer to the right */
         }
 
-        #signup-button {
-            width: 30%;
-            border-radius: 5px;
-            margin-left: 30px;
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center items horizontally */
+            width: 100%; /* Make sure it takes full width */
         }
+
+        #signup-button {
+            width: 40%; /* Match the width of the input boxes */
+            border-radius: 5px;
+            margin-top: 10px; /* Add some space between the button and the last input box */
+        }
+
         :root {
             --background-color: #ffffff;
             --text-color: #000000;
@@ -73,6 +100,8 @@
             --button-bg-color: #007BFF;
             --button-text-color: #ffffff;
             --link-color: #007BFF;
+            --shadow-color: aqua;
+            --cookie-color: rgba(0, 123, 255, 4%);
         }
 
         body {
@@ -105,7 +134,7 @@
             font-size: 14px;
             background-color: var(--input-bg-color);
             color: var(--text-color);
-            box-shadow: 5px 5px 7px aqua;
+            box-shadow: 5px 5px 7px var(--shadow-color);
         }
 
         button {
@@ -117,7 +146,7 @@
             cursor: pointer;
             margin-top: 10px;
             transform: scale(1);
-            box-shadow: 5px 5px 7px aqua;
+            box-shadow: 5px 5px 7px var(--shadow-color);
         }
 
         button:hover {
@@ -158,6 +187,8 @@
             --button-bg-color: #4444ff;
             --button-text-color: #ffffff;
             --link-color: #4fa3ff;
+            --shadow-color: #222;
+            --cookie-color: rgba(51, 51, 51, 4%)
         }
 
     </style>
