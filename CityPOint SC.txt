@@ -175,10 +175,6 @@ web: gunicorn app:app
 
 Script.js
 
-
----------------------------------------------------
-
-client.html
 async function signup() {
     const uid = document.getElementById("signup-uid").value;  // Get UID from the input field
     const password = document.getElementById("signup-password").value;
