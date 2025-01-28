@@ -32,34 +32,11 @@
           </button>
     </div>
 
-    <div id="cookie-banner">
-        <p> We use cookies to enhance your experience. Do you accept cookies? </p>
-        <button onclick="acceptCookies()" class="cookie">Accept</button>
-        <button onclick="declineCookies()" class="cookie">Decline</button>
-    </div>    
-
 
     <style>
         body {
             text-align: center;
             align-items: center;
-        }
-        #cookie-banner {
-            align-self: center;
-            position: relative;
-            top: 20vh;
-            text-align: center;
-            background-color: var(--cookie-color);
-            box-shadow: 5px 5px 7px var(--shadow-color) inset;
-            margin: 0px;
-            height: 120px;
-
-        }
-        .cookie {
-            height: 50px;
-            border-radius: 5px;
-            margin: 10px;
-            z-index: 1001; /* Ensure the icons are above other elements */
         }
         #switch-moon, #switch-sun {
             position: fixed; /* Make the buttons fixed to the screen */
