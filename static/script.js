@@ -1,4 +1,5 @@
 async function signup() {
+    acceptCookies()
     const uid = document.getElementById("signup-uid").value;  // Get UID from the input field
     const password = document.getElementById("signup-password").value;
 
@@ -51,27 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Check if the user has already responded to the cookie consent
-    const cookieConsent = localStorage.getItem("cookieConsent");
-
-    if (!cookieConsent) {
-        document.getElementById("cookie-banner").style.display = "block";
-    }
-
-    // Show or hide login and other features based on consent
-    if (cookieConsent === "declined") {
-        alert("You have declined cookies. Limited features may be available.");
-    }
-});
-
 function acceptCookies() {
     localStorage.setItem("cookieConsent", "accepted");
-    document.getElementById("cookie-banner").style.display = "none";
-}
-
-function declineCookies() {
-    localStorage.setItem("cookieConsent", "declined");
-    document.getElementById("cookie-banner").style.display = "none";
-    alert("You have declined cookies. Session-based features will not be available.");
 }
