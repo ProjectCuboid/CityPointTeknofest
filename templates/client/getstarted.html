@@ -13,13 +13,18 @@
     <section class="sections" id="section-1">
         <header>
             <h2>What we are doing?</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nostrum nulla tempore, at eos porro pariatur quidem odit consequatur earum, quo eum esse eligendi vero error est harum nemo. Veniam.</p>
+            <p class="hoverable">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nostrum nulla tempore, at eos porro pariatur quidem odit consequatur earum, quo eum esse eligendi vero error est harum nemo. Veniam.</p>
         </header>
+        <div><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,8,17,8,17,8Z"/>
+              <rect width="240" height="240" fill="none"/>
+            </svg></div>
     </section>
     <section class="sections" id="section-2">
         <header>
             <h2>How you can join us in our journey?</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
+            <p class="hoverable">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
         </header>
     </section>
     <section class="sections" id="section-3">
@@ -60,17 +65,48 @@
     }
 
     #section-1 {
-        height: 40rem;
-        background: linear-gradient(135deg, #3B6064, #87BBA2);
-        color: #F7F9F9;
-        --mask:
-            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
-            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
-            -webkit-mask: var(--mask);
-            mask: var(--mask);
+    position: relative;  /* Ensure the section is relative for the overlay to work */
+    height: 40rem;
+    background: linear-gradient(135deg, #3B6064, #87BBA2);
+    color: #F7F9F9;
+    --mask:
+        radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
+        radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
+        radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
+        radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
     }
+
+    #section-1::before {
+        content: '';  /* Pseudo-element requires content */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);  /* Semi-transparent black */
+        z-index: 1;  /* Overlay z-index */
+    }
+
+    #section-1 div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centers the SVG */
+        z-index: 2; /* Ensures the SVG is above the overlay but below the content */
+    }
+
+    #section-1 div svg {
+    opacity: 0.1;  /* Adjust this value to your desired level of transparency */
+    }
+
+
+    header {
+        position: relative;
+        z-index: 3;  /* Ensures header text is above everything */
+    }
+
 
     #section-2 {
         height: 40rem;
@@ -98,6 +134,7 @@
             mask: var(--mask);
     }
 
+    
     button {
         position: relative;
         overflow: hidden;
@@ -113,6 +150,7 @@
         transition: color 0.4s ease, transform 0.3s ease;
     }
 
+    .howerable
     button::before {
         content: '';
         position: absolute;
