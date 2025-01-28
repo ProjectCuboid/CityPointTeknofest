@@ -56,7 +56,7 @@ def protected_admin_route():
 def signup_page():
     return render_template("client/signup.html")
 
-@app.route("/login")
+@app.route("/")
 def login_page():
     return render_template("client/login.html")
 
