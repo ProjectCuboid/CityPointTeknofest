@@ -47,8 +47,8 @@
     const delayBetweenPhrases = 1000; // Delay before erasing
     
     const phrases = {
-        "section-1": ["...What we are doing?", "...Biz nə edirik?","...Что мы делаем?"],
-        "section-2": ["...How you can join us in our journey?", "...Səyahətimizə necə qoşula bilərsiniz?", "...Как вы можете присоединиться к нам в нашем путешествии?"],
+        "section-1": ["...What do we do?", "...Biz nə edirik?","...Что мы делаем?"],
+        "section-2": ["...How you can join our journey?", "...Səyahətimizə necə qoşula bilərsiniz?", "...Как вы можете присоединиться к нашему путешествию?"],
         "section-3": ["...Get started", "...Başlayın", "...Начать"]
     };
     
@@ -112,7 +112,7 @@
 
     h2 {
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 1.5rem;
         margin-bottom: 10px;
         color: #ffffff;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -121,7 +121,7 @@
 
     p {
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 1em;
         color: #CCCCCC;
         z-index: 101;
     }
@@ -133,7 +133,6 @@
 
     #section-1 {
     position: relative;  /* Ensure the section is relative for the overlay to work */
-    height: 40rem;
     background: linear-gradient(135deg, #3B6064, #87BBA2);
     color: #F7F9F9;
     --mask:
@@ -176,7 +175,6 @@
 
 
     #section-2 {
-        height: 40rem;
         background: linear-gradient(135deg, #6D597A, #B56576);
         color: #FFF9FB;
         --mask:
@@ -189,7 +187,6 @@
     }
 
     #section-3 {
-        height: 20rem;
         background: linear-gradient(135deg, #DDA15E, #F4A261);
         color: #FFF4E6;
         --mask:
@@ -202,7 +199,6 @@
     }
 
     #section-3 {
-        height: 20rem;
         background: linear-gradient(135deg, #DDA15E, #F4A261);
         color: #FFF4E6;
         --mask:
@@ -216,7 +212,6 @@
 
     #links {
         position: relative;  /* Ensure the section is relative for the overlay to work */
-        height: 40rem;
         background: linear-gradient(135deg, #111, #222);
         color: #FFF4E6;
         --mask:
