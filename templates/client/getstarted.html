@@ -31,6 +31,12 @@
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
         </header>
     </section>
+    <section class="non-sections" id="links">
+        <header>
+            <h2>Links:</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
+        </header>
+    </section>
     <script src="/static/script.js" defer></script>
     <script>document.addEventListener("DOMContentLoaded", () => {
         startTypewriterEffectForAll();
@@ -120,7 +126,7 @@
         z-index: 101;
     }
 
-    .sections {
+    .sections, .nonsections {
         padding: 50px 20px;
         text-align: center;
     }
@@ -194,6 +200,34 @@
             -webkit-mask: var(--mask);
             mask: var(--mask);
     }
+
+    #section-3 {
+        height: 20rem;
+        background: linear-gradient(135deg, #DDA15E, #F4A261);
+        color: #FFF4E6;
+        --mask:
+            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
+            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+    }
+
+    #links {
+        position: relative;  /* Ensure the section is relative for the overlay to work */
+        height: 40rem;
+        background: linear-gradient(135deg, #111, #222);
+        color: #FFF4E6;
+        --mask:
+            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
+            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
+            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
+            -webkit-mask: var(--mask);
+            mask: var(--mask);
+    }
+
 
     
     button {
