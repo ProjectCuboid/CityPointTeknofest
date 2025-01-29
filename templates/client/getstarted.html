@@ -9,93 +9,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="sections" id="section-3">
-        <header>
-            <h2>Get started</h2>
-            <button id="join-us" onclick="getstarted()"><span>Join us now!</span>
-    </section>
+    <div id="upper">
+        <a id="ui">Sign Up</a>
+        <a id="ui">Log In</a>
+        <a id="ui">About</a>
+        <a id="ui">Contact</a>
+    </div>
     <section class="sections" id="section-1">
         <header>
-            <div><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-                <svg width="20rem" height="20rem" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,8,17,8,17,8Z"/>
-                </svg></div>
-            <h2>What we are doing?</h2>
+            <h1>CityPoint</h1>
+            <h2>Bonuses in every way</h2>
+            <h3>Get started</h3>
+            <button id="join-us" onclick="getstarted()"><span>Join us now!</span>
+    </section>
+    <section class="sections" id="section-2">
+        <header>
+            <h2>What is CityPoint?</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nostrum nulla tempore, at eos porro pariatur quidem odit consequatur earum, quo eum esse eligendi vero error est harum nemo. Veniam.</p>
         </header>
         </header>
     </section>
-    <section class="sections" id="section-2">
-        <header>
-            <h2>How you can join us in our journey?</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
-        </header>
-    </section>
-    <section class="non-sections" id="links">
-        <header>
-            <h2>Links:</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
-        </header>
-    </section>
+
     <script src="/static/script.js" defer></script>
-    <script>document.addEventListener("DOMContentLoaded", () => {
-        startTypewriterEffectForAll();
-    });
-    
-    const speed = 100; // Typing speed in ms
-    const eraseSpeed = 50; // Erasing speed in ms
-    const delayBetweenPhrases = 1000; // Delay before erasing
-    
-    const phrases = {
-        "section-1": ["...What do we do?", "...Biz nə edirik?","...Что мы делаем?"],
-        "section-2": ["...How you can join our journey?", "...Səyahətimizə necə qoşula bilərsiniz?", "...Как вы можете присоединиться к нашему путешествию?"],
-        "section-3": ["...Get started", "...Başlayın", "...Начать"]
-    };
-    
-    function startTypewriterEffectForAll() {
-    const sections = document.querySelectorAll(".sections");
-
-    sections.forEach(section => {
-        const header = section.querySelector("h2");
-        if (!header) return;
-
-        const sectionId = section.id;
-        const textArray = phrases[sectionId] || [header.textContent];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isErasing = false;
-
-        function typeEffect() {
-
-            const text = textArray[phraseIndex];
-
-            if (!isErasing) {
-                header.textContent = text.slice(0, charIndex++);
-                if (charIndex > text.length) {
-                    isErasing = true;
-                    setTimeout(typeEffect, delayBetweenPhrases);
-                } else {
-                    setTimeout(typeEffect, speed);
-                }
-            } else {
-                if (charIndex > 2) {
-                    header.textContent = text.slice(0, charIndex--);
-                    setTimeout(typeEffect, eraseSpeed);
-                } else {
-                    isErasing = false;
-                    phraseIndex = (phraseIndex+1) % textArray.length;
-                    setTimeout(typeEffect, delayBetweenPhrases);
-                }
-            }
-        }
-
-        typeEffect();
-    });
-}
-    </script>
 </body>
 
 <style>
+
     header {
     min-height: 50px; /* Adjust as needed */
     padding: 100px;
@@ -110,15 +49,40 @@
         line-height: 1.6;
     }
 
-    h2 {
-        font-weight: 700;
-        font-size: 1.5rem;
+    h1, h2, h3 {
         margin-bottom: 10px;
         color: #ffffff;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
         z-index: 100;
     }
 
+    h1 {
+        font-weight: 700;
+        font-size: 7.5rem;
+    }
+
+    h2 {
+        font-weight: 500;
+        font-size: 3.5rem;
+    }
+
+    h3 {
+        font-weight: 500;
+        font-size: 2.5rem;
+    }
+
+    #upper {
+        background-color: #1E1E2F;
+        height: 5em;
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        z-index: 1000;
+    }
+
+    #ui {
+        margin-left: 10px;
+    }
     p {
         font-weight: 400;
         font-size: 1em;
@@ -126,16 +90,20 @@
         z-index: 101;
     }
 
-    .sections, .nonsections {
+    .sections{
         padding: 50px 20px;
-        text-align: center;
+        text-align: left;
     }
 
+    header {
+        position: relative;
+        z-index: 3;  /* Ensures header text is above everything */
+    }
     #section-1 {
-    position: relative;  /* Ensure the section is relative for the overlay to work */
-    background: linear-gradient(135deg, #3B6064, #87BBA2);
-    color: #F7F9F9;
-    --mask:
+        background-image: url(./Assets/Img/moonrise.png);
+        background-size: cover;
+        color: #FFF4E6;
+        --mask:
         radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
         radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
         radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
@@ -144,83 +112,17 @@
         mask: var(--mask);
     }
 
-    #section-1::before {
-        content: '';  /* Pseudo-element requires content */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);  /* Semi-transparent black */
-        z-index: 1;  /* Overlay z-index */
-    }
-
-    #section-1 div {
-        position: absolute;
-        top: 90%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Centers the SVG */
-        z-index: 2; /* Ensures the SVG is above the overlay but below the content */
-    }
-
-    svg {
-    opacity: 0.2;  /* Adjust this value to your desired level of transparency */
-    }
-
-
-    header {
-        position: relative;
-        z-index: 3;  /* Ensures header text is above everything */
-    }
-
-
     #section-2 {
-        background: linear-gradient(135deg, #6D597A, #B56576);
-        color: #FFF9FB;
-        --mask:
-            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
-            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
-            -webkit-mask: var(--mask);
-            mask: var(--mask);
-    }
-
-    #section-3 {
-        background: linear-gradient(135deg, #DDA15E, #F4A261);
+        background-image: url(./Assets/Img/ray-of-lights.png);
+        background-size: cover;
         color: #FFF4E6;
         --mask:
-            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
-            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
-            -webkit-mask: var(--mask);
-            mask: var(--mask);
-    }
-
-    #section-3 {
-        background: linear-gradient(135deg, #DDA15E, #F4A261);
-        color: #FFF4E6;
-        --mask:
-            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
-            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
-            -webkit-mask: var(--mask);
-            mask: var(--mask);
-    }
-
-    #links {
-        position: relative;  /* Ensure the section is relative for the overlay to work */
-        background: linear-gradient(135deg, #111, #222);
-        color: #FFF4E6;
-        --mask:
-            radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
-            radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
-            radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
-            -webkit-mask: var(--mask);
-            mask: var(--mask);
+        radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
+        radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
+        radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
+        radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
     }
 
 
