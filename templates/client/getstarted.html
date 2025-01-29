@@ -2,40 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Get Started</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <script src="/static/script.js" defer></script>
 </head>
 <body>
-    <section class="sections" id="section-1">
-        <header>
-            <h2>What we are doing?</h2>
-            <p class="hoverable">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nostrum nulla tempore, at eos porro pariatur quidem odit consequatur earum, quo eum esse eligendi vero error est harum nemo. Veniam.</p>
-        </header>
-        <div><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-            <svg width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,8,17,8,17,8Z"/>
-              <rect width="240" height="240" fill="none"/>
-            </svg></div>
-    </section>
-    <section class="sections" id="section-2">
-        <header>
-            <h2>How you can join us in our journey?</h2>
-            <p class="hoverable">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
-        </header>
-    </section>
     <section class="sections" id="section-3">
         <header>
             <h2>Get started</h2>
             <button id="join-us" onclick="getstarted()"><span>Join us now!</span>
+    </section>
+    <section class="sections" id="section-1">
+        <header>
+            <div><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg width="20rem" height="20rem" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20C19,20,22,3,22,3,21,5,14,5.25,9,6.25S2,11.5,2,13.5a6.22,6.22,0,0,0,1.75,3.75C7,8,17,8,17,8Z"/>
+                </svg></div>
+            <h2>What we are doing?</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nostrum nulla tempore, at eos porro pariatur quidem odit consequatur earum, quo eum esse eligendi vero error est harum nemo. Veniam.</p>
+        </header>
         </header>
     </section>
+    <section class="sections" id="section-2">
+        <header>
+            <h2>How you can join us in our journey?</h2>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. A dolore nihil consequuntur corporis numquam excepturi, ab, explicabo eaque repellat maiores quis! Animi officia rem nesciunt ipsum molestias quas reiciendis at.</p>
+        </header>
+    </section>
+    <script src="/static/script.js" defer></script>
+    <script>document.addEventListener("DOMContentLoaded", () => {
+        startTypewriterEffectForAll();
+    });
+    
+    const speed = 100; // Typing speed in ms
+    const eraseSpeed = 50; // Erasing speed in ms
+    const delayBetweenPhrases = 1000; // Delay before erasing
+    
+    const phrases = {
+        "section-1": ["...What we are doing?", "...Biz nə edirik?","...Что мы делаем?"],
+        "section-2": ["...How you can join us in our journey?", "...Səyahətimizə necə qoşula bilərsiniz?", "...Как вы можете присоединиться к нам в нашем путешествии?"],
+        "section-3": ["...Get started", "...Başlayın", "...Начать"]
+    };
+    
+    function startTypewriterEffectForAll() {
+    const sections = document.querySelectorAll(".sections");
+
+    sections.forEach(section => {
+        const header = section.querySelector("h2");
+        if (!header) return;
+
+        const sectionId = section.id;
+        const textArray = phrases[sectionId] || [header.textContent];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isErasing = false;
+
+        function typeEffect() {
+
+            const text = textArray[phraseIndex];
+
+            if (!isErasing) {
+                header.textContent = text.slice(0, charIndex++);
+                if (charIndex > text.length) {
+                    isErasing = true;
+                    setTimeout(typeEffect, delayBetweenPhrases);
+                } else {
+                    setTimeout(typeEffect, speed);
+                }
+            } else {
+                if (charIndex > 2) {
+                    header.textContent = text.slice(0, charIndex--);
+                    setTimeout(typeEffect, eraseSpeed);
+                } else {
+                    isErasing = false;
+                    phraseIndex = (phraseIndex+1) % textArray.length;
+                    setTimeout(typeEffect, delayBetweenPhrases);
+                }
+            }
+        }
+
+        typeEffect();
+    });
+}
+    </script>
 </body>
 
 <style>
+    header {
+    min-height: 50px; /* Adjust as needed */
+    padding: 100px;
+    }
+
     body {
         font-family: "Poppins", sans-serif;
         margin: 0;
@@ -51,12 +110,14 @@
         margin-bottom: 10px;
         color: #ffffff;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 100;
     }
 
     p {
         font-weight: 400;
         font-size: 1rem;
         color: #CCCCCC;
+        z-index: 101;
     }
 
     .sections {
@@ -91,14 +152,14 @@
 
     #section-1 div {
         position: absolute;
-        top: 50%;
+        top: 90%;
         left: 50%;
         transform: translate(-50%, -50%); /* Centers the SVG */
         z-index: 2; /* Ensures the SVG is above the overlay but below the content */
     }
 
-    #section-1 div svg {
-    opacity: 0.1;  /* Adjust this value to your desired level of transparency */
+    svg {
+    opacity: 0.2;  /* Adjust this value to your desired level of transparency */
     }
 
 
@@ -150,7 +211,6 @@
         transition: color 0.4s ease, transform 0.3s ease;
     }
 
-    .howerable
     button::before {
         content: '';
         position: absolute;
@@ -158,7 +218,7 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: #f200ff;
+        background: #007BFF;
         transition: left 0.4s ease;
         z-index: 0;
     }
@@ -168,28 +228,13 @@
     }
 
     button:hover {
-        color: #ffffff;  /* Change text color on hover for contrast */
+        color: White;  /* Change text color on hover for contrast */
         transform: scale(1.05);  /* Slight scale effect on hover */
     }
 
     button span {
         position: relative;
         z-index: 1;  /* Ensure text stays on top */
-    }
-
-    @media (max-width: 768px) {
-        h2 {
-            font-size: 2rem;
-        }
-
-        p {
-            font-size: 0.9rem;
-        }
-
-        button {
-            font-size: 1rem;
-            padding: 10px 20px;
-        }
     }
 </style>
 </html>
