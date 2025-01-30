@@ -64,7 +64,7 @@ header {
         z-index: 3;  /* Ensures header text is above everything */
     }
     #section-1 {
-        background-image: "{{url_for('static', filename='moonrise.png')}}";
+        background-image: url("{{url_for('static', filename='moonrise.png')}}");
         background-size: cover;
         color: #FFF4E6;
         --mask:
@@ -77,7 +77,7 @@ header {
     }
 
     #section-2 {
-        background-image: "{{url_for('static', filename='moonrise.png')}}";
+        background-image: url("{{url_for('static', filename='moonrise.png')}}");
         background-size: cover;
         color: #FFF4E6;
         --mask:
