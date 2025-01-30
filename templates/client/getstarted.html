@@ -7,7 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}"
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        #section-1 {
+            background-image: url("{{ url_for('static', filename='moonrise.png') }}");
+            background-size: cover;
+            color: #FFF4E6;
+        }
+
+        #section-2 {
+            background-image: url("{{ url_for('static', filename='rays-of-light.png') }}");
+            background-size: cover;
+            color: #FFF4E6;
+        }
+    </style>
 </head>
 <body>
     <div id="upper">
@@ -16,46 +29,23 @@
         <a id="ui">About</a>
         <a id="ui">Contact</a>
     </div>
+
     <section class="sections" id="section-1">
         <header>
             <h1>CityPoint</h1>
             <h2>Bonuses in every way</h2>
             <h3>Get started</h3>
-            <button id="join-us" onclick="getstarted()"><span>Join us now!</span>
+            <button id="join-us" onclick="getstarted()"><span>Join us now!</span></button>
+        </header>
     </section>
+
     <section class="sections" id="section-2">
         <header>
             <h2>What is CityPoint?</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque, quia est at iusto assumenda, delectus explicabo sint aspernatur laborum exercitationem odio totam veritatis officia sit, sed voluptates nam error repellat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus nostrum nulla tempore, at eos porro pariatur quidem odit consequatur earum, quo eum esse eligendi vero error est harum nemo. Veniam.</p>
-        </header>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
         </header>
     </section>
-    <style>    #section-1 {
-        background-image: "{{url_for('static', filename='moonrise.png')}}";
-        background-size: cover;
-        color: #FFF4E6;
-        --mask:
-        radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
-        radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
-        radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
-        radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
-        -webkit-mask: var(--mask);
-        mask: var(--mask);
-    }
 
-    #section-2 {
-        background-image: "{{url_for('static', filename='rays-of-light.png')}}";
-        background-size: cover;
-        color: #FFF4E6;
-        --mask:
-        radial-gradient(50.39px at 50% 68.75px,#000 99%,#0000 101%) calc(50% - 50px) 0/100px 51% repeat-x,
-        radial-gradient(50.39px at 50% -43.75px,#0000 99%,#000 101%) 50% 25px/100px calc(51% - 25px) repeat-x,
-        radial-gradient(50.39px at 50% calc(100% - 68.75px),#000 99%,#0000 101%) calc(50% - 50px) 100%/100px 51% repeat-x,
-        radial-gradient(50.39px at 50% calc(100% + 43.75px),#0000 99%,#000 101%) 50% calc(100% - 25px)/100px calc(51% - 25px) repeat-x;
-        -webkit-mask: var(--mask);
-        mask: var(--mask);
-    }</style>
-
-    <script src="{{url_for('static', filename='script.js')}}" defer></script>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </body>
 </html>
