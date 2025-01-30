@@ -128,7 +128,7 @@ button span {
 
 /*Text with  Shadow*/
 .title{
-  color: aliceblue;
+  color: #007BFF;
   text-shadow: 5px 5px 0px blue;
   transition: text-shadow 500ms;
 }
