@@ -125,3 +125,15 @@ button span {
     position: relative;
     z-index: 1; /* Ensure text stays on top */
 }
+
+/*Text with  Shadow*/
+.title{
+  color: aliceblue;
+  text-shadow: 5px 5px 0px blue;
+  transition: text-shadow 500ms;
+}
+
+.title:focus,
+.title:hover{
+  text-shadow: 8px 8px 0px blue;
+}
