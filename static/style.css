@@ -51,19 +51,25 @@ header {
     padding: 0 20px;
 }
 
+/*Fancy link*/
 #ui {
-    margin: 0 15px;
-    color: #EAEAEA;
-    text-decoration: none;
-    font-weight: 500;
-    cursor: pointer;
-    transition: color 0.3s ease;
+  color: aliceblue;
+  text-decoration: none;
+  background-image:
+   linear-gradient(90deg, violet, red);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left 1.5em;
+  padding-block: .25em;
+  transition: background-size 500ms;
 }
 
-#ui:hover {
-    color: #F28482;
+#ui:hover,
+#ui:focus{
+  background-size: 100% 3px;
 }
 
+#link{transition-timing-function: ease;}
 /* Paragraphs */
 p {
     font-weight: 400;
