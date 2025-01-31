@@ -74,12 +74,15 @@ header {
 
 #link{transition-timing-function: ease;}
 /* Paragraphs */
-p, h5 {
+p, h5, selectLang, selection {
     font-weight: 400;
     font-size: 1em;
     color: #CCCCCC;
 }
 
+#selectLang {
+    background-color: #1E1E2F
+}
 /* Sections */
 .sections {
     padding: 50px 20px;
