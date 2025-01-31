@@ -74,7 +74,7 @@ header {
 
 #link{transition-timing-function: ease;}
 /* Paragraphs */
-p, h5, selectLang, selection {
+p, h5, selection {
     font-weight: 400;
     font-size: 1em;
     color: #CCCCCC;
@@ -82,6 +82,7 @@ p, h5, selectLang, selection {
 
 #selectLang {
     background-color: #1E1E2F
+    CityPointin qəhrəmanları
 }
 /* Sections */
 .sections {
