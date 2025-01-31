@@ -135,5 +135,5 @@ button span {
 
 .title:focus,
 .title:hover{
-  text-shadow: 8px 8px 0px #007BFF;
+  text-shadow: 8px 8px 0px rgba(0, 123, 255, 80);
 }
