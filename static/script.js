@@ -80,7 +80,7 @@ const setLanguage = (language) => {
         start: document.querySelector(".gtstarted"),
         joinus: document.querySelector("#join-us span"),
         bns: document.querySelector(".bns"),
-        selct: document.querySelector("p"),
+        selct: document.querySelector(".lang"),
         what: document.querySelector("#section-2 h2")
     };
 
