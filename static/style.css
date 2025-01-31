@@ -74,7 +74,7 @@ header {
 
 #link{transition-timing-function: ease;}
 /* Paragraphs */
-p {
+p, h5 {
     font-weight: 400;
     font-size: 1em;
     color: #CCCCCC;
