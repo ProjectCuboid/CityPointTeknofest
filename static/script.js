@@ -58,7 +58,7 @@ const translations = {
         abt : "Об",
         contact : "Контакт",
         start : "Начни",
-        joinus : "Присоединяйтесь к намQ",
+        joinus : "Присоединяйтесь к нам",
         bns : "Бонусы во всем",
         selct : "Язык",
         what : "Что такое CityPoint"
