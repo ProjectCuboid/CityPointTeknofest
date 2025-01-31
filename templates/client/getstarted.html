@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=0.5, user-scalable=no">
     <title>Get Started</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,19 +41,19 @@
     <div class="loader-container" id="loader">
         <div class="loader"></div>
     </div>
-    
+
     <div id="upper">
-        <a id="ui">Sign Up</a>
-        <a id="ui">Log In</a>
-        <a id="ui">About</a>
-        <a id="ui">Contact</a>
+        <a id="ui" class="signup">Sign Up</a>
+        <a id="ui" class="login">Log In</a>
+        <a id="ui" class="abt">About</a>
+        <a id="ui" class="contact">Contact</a>
     </div>
 
     <section class="sections" id="section-1">
         <header>
             <h1 class="title">CityPoint</h1>
-            <h2>Bonuses in every way</h2>
-            <h3>Get started</h3>
+            <h2 class="bns">Bonuses in every way</h2>
+            <h3 class="gtstarted">Get started</h3>
             <button id="join-us" onclick="getstarted()"><span>Join us now!</span></button>
         </header>
     </section>
@@ -65,6 +65,13 @@
         </header>
     </section>
 
+    <p>Select language</p>
+    <select>
+        <option value="en">English</option>
+        <option value="tr">Türkçe</option>
+        <option value="az">Azərbaycanca</option>
+        <option value="ru">Русский</option>
+    </select>
     <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </body>
 </html>
