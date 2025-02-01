@@ -64,12 +64,15 @@ header {
   background-position: left 1.5em;
   padding-block: .25em;
   transition: background-size 500ms;
+  transition: background-color: 350ms;
   margin-left: 10px;
+  background-color: #1E1E2F
 }
 
 #ui:hover,
 #ui:focus{
   background-size: 100% 3px;
+  background-color: #31314d;
 }
 
 #link{transition-timing-function: ease;}
