@@ -85,6 +85,7 @@ p, h5, #selection, #selectLang {
     margin-left: 10px;
     border: none;
     appearance: none;
+    outline: none;
 }
 /* Sections */
 .sections {
