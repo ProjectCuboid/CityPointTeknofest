@@ -55,7 +55,7 @@ header {
 
 /*Fancy link*/
 #ui {
-  height: 5em;
+  border-radius: 5px;
   color: aliceblue;
   text-decoration: none;
   background-image:
@@ -65,7 +65,7 @@ header {
   background-position: left 1.5em;
   padding-block: .25em;
   transition: background-size 500ms;
-  transition: background-color: 350ms;
+  transition: background-color 350ms;
   margin-left: 10px;
   background-color: #1E1E2F
 }
