@@ -72,7 +72,6 @@ header {
 #ui:hover,
 #ui:focus{
   background-size: 100% 3px;
-  background-color: #31314d;
 }
 
 #link{transition-timing-function: ease;}
@@ -84,7 +83,7 @@ p, h5{
 }
 
 .plyground {
-    margin-left: 80px;
+    margin-left: 100px;
 }
 #selection, #selectLang {
     font-weight: 400;
@@ -94,7 +93,7 @@ p, h5{
 
 #selectLang {
     background-color: #1E1E2F;
-    margin-left: 10px;
+    margin-left: 40px;
     border: none;
     appearance: none;
     outline: none;
