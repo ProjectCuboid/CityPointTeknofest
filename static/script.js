@@ -10,7 +10,7 @@ function hideLoader() {
     document.body.style.overflow = "auto";
     document.body.style.pointerEvents = "auto";
 }
-setTimeout(hideLoader, 6000);
+setTimeout(hideLoader, 1200);
 
 // ________________________LOADED-SITE___________________________________
 
