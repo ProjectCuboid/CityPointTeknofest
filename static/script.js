@@ -28,7 +28,7 @@ const translations = {
         joinus : "Join us now!",
         bns : "Bonuses in every way",
         selct : "Language",
-        what : "What is CityPoint"
+        what : "What is CityPoint",
     },
     az: {
         signup : "Qeydiyyat",
