@@ -11,6 +11,11 @@ function hideLoader() {
     document.body.style.pointerEvents = "auto";
 }
 
+window.addEventListener("load", () => {
+    hideLoader();
+});
+
+
 // ________________________LOADED-SITE___________________________________
 
 function getstarted(){
