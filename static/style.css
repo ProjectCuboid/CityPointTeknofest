@@ -55,6 +55,7 @@ header {
 
 /*Fancy link*/
 #ui {
+  height: 5em;
   color: aliceblue;
   text-decoration: none;
   background-image:
@@ -77,10 +78,16 @@ header {
 
 #link{transition-timing-function: ease;}
 /* Paragraphs */
-p, h5, #selection, #selectLang {
+p, h5{
     font-weight: 400;
     font-size: 1em;
     color: #CCCCCC;
+}
+
+#selection, #selectLang {
+    font-weight: 400;
+    font-size: 1em;
+    color: aliceblue;
 }
 
 #selectLang {
