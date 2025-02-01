@@ -39,7 +39,7 @@ const translations = {
         joinus : "Bizə qoşul!",
         bns : "Hər yerdə bonus",
         selct : "Dil",
-        what : "CityPoint nədir?"
+        what : "CityPoint nədir?",
         ques : "CityPoint – bu, istifadəçilərə gündəlik həyatlarında istifadə edə biləcəkləri xüsusi xallar (pointlər) qazandıran bir proqramdır. Proqramımız istifadəçilərə yol hərəkəti qaydalarını öyrənməyə imkan verir. Əgər istifadəçilər qaydalara riayət etsələr, onlara City Pointlər təqdim edəcəyik və onlar bu xalları ictimai nəqliyyatda istifadə edə biləcəklər. City Point ilə həyatınızı daha rəngarəng və rahat edin!"
     },
     tr: {
@@ -51,7 +51,7 @@ const translations = {
         joinus : "Bize katıl!",
         bns : "Her yerde bonus",
         selct : "Dil",
-        what : "CityPoint nedir?"
+        what : "CityPoint nedir?",
         ques: "CityPoint, kullanıcıların günlük yaşamda kullanabilecekleri sözde CityPoint kullanmalarına olanak tanıyan bir programdır. Programımız kullanıcılara trafik güvenliği kurallarını öğrenme fırsatı veriyor. Kullanıcılar kurallara uyarlarsa, onlara toplu taşıma araçlarında kullanabilecekleri CityPoints vereceğiz. Hayatınızı CityPoint ile daha parlak ve daha elverişli hale getirin."
     },
     ru: {
@@ -63,7 +63,7 @@ const translations = {
         joinus : "Присоединяйтесь к нам",
         bns : "Бонусы во всем",
         selct : "Язык",
-        what : "Что такое CityPoint"
+        what : "Что такое CityPoint",
         ques : "СитиПоинт это программа позволяющая пользователям использовать так называемые поинты которые они могут использовать в повседневной жизни.  Наша программа даёт пользователям познавать правила дорожной безопасности. Если пользователи будут соблюдать правила то мы дадим им СитиПоинты с которыми они могут использовать их в общественном транспорте. Сделайте свою жизнь ярче и благоприятнее с СитиПоинт."
     }
 }
