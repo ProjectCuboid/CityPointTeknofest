@@ -33,7 +33,8 @@ const translations = {
         bns : "Bonuses in every way",
         selct : "Language",
         what : "What is CityPoint",
-        ques: "CityPoint is a program that allows users to use so-called points that they can use in their daily lives. Our program allows users to learn the rules of road safety. If users follow the rules, we will give them CityPoints with which they can use them on public transport. Make your life brighter and more favorable with CityPoint"
+        ques: "CityPoint is a program that allows users to use so-called points that they can use in their daily lives. Our program allows users to learn the rules of road safety. If users follow the rules, we will give them CityPoints with which they can use them on public transport. Make your life brighter and more favorable with CityPoint",
+        lan: "Language:"
     },
     az: {
         signup : "Qeydiyyat",
@@ -45,7 +46,8 @@ const translations = {
         bns : "Hər yerdə bonus",
         selct : "Dil",
         what : "CityPoint nədir?",
-        ques : "CityPoint – bu, istifadəçilərə gündəlik həyatlarında istifadə edə biləcəkləri xüsusi xallar (pointlər) qazandıran bir proqramdır. Proqramımız istifadəçilərə yol hərəkəti qaydalarını öyrənməyə imkan verir. Əgər istifadəçilər qaydalara riayət etsələr, onlara City Pointlər təqdim edəcəyik və onlar bu xalları ictimai nəqliyyatda istifadə edə biləcəklər. City Point ilə həyatınızı daha rəngarəng və rahat edin!"
+        ques : "CityPoint – bu, istifadəçilərə gündəlik həyatlarında istifadə edə biləcəkləri xüsusi xallar (pointlər) qazandıran bir proqramdır. Proqramımız istifadəçilərə yol hərəkəti qaydalarını öyrənməyə imkan verir. Əgər istifadəçilər qaydalara riayət etsələr, onlara City Pointlər təqdim edəcəyik və onlar bu xalları ictimai nəqliyyatda istifadə edə biləcəklər. City Point ilə həyatınızı daha rəngarəng və rahat edin!",
+        lan: "Dil:"
     },
     tr: {
         signup : "Kayıt",
@@ -57,7 +59,8 @@ const translations = {
         bns : "Her yerde bonus",
         selct : "Dil",
         what : "CityPoint nedir?",
-        ques: "CityPoint, kullanıcıların günlük yaşamda kullanabilecekleri sözde CityPoint kullanmalarına olanak tanıyan bir programdır. Programımız kullanıcılara trafik güvenliği kurallarını öğrenme fırsatı veriyor. Kullanıcılar kurallara uyarlarsa, onlara toplu taşıma araçlarında kullanabilecekleri CityPoints vereceğiz. Hayatınızı CityPoint ile daha parlak ve daha elverişli hale getirin."
+        ques: "CityPoint, kullanıcıların günlük yaşamda kullanabilecekleri sözde CityPoint kullanmalarına olanak tanıyan bir programdır. Programımız kullanıcılara trafik güvenliği kurallarını öğrenme fırsatı veriyor. Kullanıcılar kurallara uyarlarsa, onlara toplu taşıma araçlarında kullanabilecekleri CityPoints vereceğiz. Hayatınızı CityPoint ile daha parlak ve daha elverişli hale getirin.",
+        lan: "Dil:"
     },
     ru: {
         signup : "Зарегистрироваться",
@@ -69,7 +72,8 @@ const translations = {
         bns : "Бонусы во всем",
         selct : "Язык",
         what : "Что такое CityPoint",
-        ques : "СитиПоинт это программа позволяющая пользователям использовать так называемые поинты которые они могут использовать в повседневной жизни.  Наша программа даёт пользователям познавать правила дорожной безопасности. Если пользователи будут соблюдать правила то мы дадим им СитиПоинты с которыми они могут использовать их в общественном транспорте. Сделайте свою жизнь ярче и благоприятнее с СитиПоинт."
+        ques : "СитиПоинт это программа позволяющая пользователям использовать так называемые поинты которые они могут использовать в повседневной жизни.  Наша программа даёт пользователям познавать правила дорожной безопасности. Если пользователи будут соблюдать правила то мы дадим им СитиПоинты с которыми они могут использовать их в общественном транспорте. Сделайте свою жизнь ярче и благоприятнее с СитиПоинт.",
+        lan: "Язык:"
     }
 }
 
@@ -91,6 +95,7 @@ const setLanguage = (language) => {
         selct: document.querySelector(".lang"),
         what: document.querySelector("#section-2 h2"),
         ques: document.querySelector(".abtQuest")
+        lan: document.querySelector(".language")
     };
 
     if (translations[language]) {
