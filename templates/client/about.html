@@ -26,24 +26,29 @@
                 mask: var(--mask);
         }
     </style>
-        <div id="upper">
-            <a id="ui" class="signup" href="/signup">Sign Up</a>
-            <a id="ui" class="login" href="/login">Log In</a>
-            <a id="ui" class="contact">Contact</a>
-            <p class="language">Language:</p>
-            <select id="selectLang">
-                <option selected id="selection" value="en">English</option>
-                <option id="selection" value="tr">Türkçe</option>
-                <option id="selection" value="az">Azərbaycanca</option>
-                <option id="selection" value="ru">Русский</option>
-            </select>
-        </div>
+
+    <div class="loader-container" id="loader">
+        <div class="loader"></div>
+    </div>
     
-        <section class="sections" id="section-1">
-            <header>
-                <h2 class="abtOp">About</h2>
-                <h5 class="abttext">EN</h5>
-            </header>
-        </section>
-        <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+    <div id="upper">
+        <a id="ui" class="signup" href="/signup">Sign Up</a>
+        <a id="ui" class="login" href="/login">Log In</a>
+        <a id="ui" class="contact">Contact</a>
+        <p class="language">Language:</p>
+        <select id="selectLang">
+            <option selected id="selection" value="en">English</option>
+            <option id="selection" value="tr">Türkçe</option>
+            <option id="selection" value="az">Azərbaycanca</option>
+            <option id="selection" value="ru">Русский</option>
+        </select>
+    </div>
+    
+    <section class="sections" id="section-1">
+        <header>
+            <h2 class="abtOp">About</h2>
+            <h5 class="abttext">EN</h5>
+        </header>
+    </section>
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
 </body>
