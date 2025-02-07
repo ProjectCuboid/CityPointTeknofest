@@ -35,11 +35,14 @@ h3 {
 /* Header Section */
 header {
     position: relative;
-    z-index: 3; /* Ensures header text is above everything */
+    z-index: 1001; /* Ensures header text is above everything */
     min-height: 50px;
     padding: 100px;
 }
 
+.language {
+	margin-left:  40px;
+}
 /* Upper Navbar */
 #upper {
     background-color: #1E1E2F;
@@ -80,10 +83,6 @@ p, h5{
     font-weight: 400;
     font-size: 1em;
     color: #CCCCCC;
-}
-
-.plyground {
-    margin-left: 100px;
 }
 #selection, #selectLang {
     font-weight: 400;
