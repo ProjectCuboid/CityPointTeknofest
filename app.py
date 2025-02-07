@@ -8,6 +8,10 @@ app = Flask(__name__)
 def getstarted_page():
     return render_template("client/getstarted.html")
 
+@app.route("/about")
+def login_page():
+    return render_template("client/about.html")
+
 @app.route("/login")
 def login_page():
     return render_template("client/login.html")
