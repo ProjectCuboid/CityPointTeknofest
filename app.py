@@ -9,7 +9,7 @@ def getstarted_page():
     return render_template("client/getstarted.html")
 
 @app.route("/about")
-def login_page():
+def about_page():
     return render_template("client/about.html")
 
 @app.route("/login")
