@@ -94,7 +94,7 @@ const setLanguage = (language) => {
         bns: document.querySelector(".bns"),
         selct: document.querySelector(".lang"),
         what: document.querySelector("#section-2 h2"),
-        ques: document.querySelector(".abtQuest")
+        ques: document.querySelector(".abtQuest"),
         lan: document.querySelector(".language")
     };
 
