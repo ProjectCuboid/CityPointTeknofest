@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityPoint Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="shortcut icon" type="x-icon" href="{{ url_for('static', filename='Icon.png') }}">
+    <style>
+        body {
+            background-color: #1E1E2F;
+            color: #EAEAEA;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .points-display {
+            background: linear-gradient(135deg, #F28482, #007BFF);
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .points-display h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+        
+        .points-display .points {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background-color: #2A2A45;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card h3 {
+            margin-top: 0;
+            color: #FFFFFF;
+        }
+        
+        .card p {
+            color: #CCCCCC;
+        }
+        
+        .card .points-badge {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .card button {
+            background-color: #F28482;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .card button:hover {
+            background-color: #e76f6d;
+        }
+        
+        .history-section {
+            margin-top: 40px;
+        }
+        
+        .history-section h2 {
+            margin-bottom: 20px;
+        }
+        
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .history-table th, .history-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        
+        .history-table th {
+            background-color: #2A2A45;
+            color: #FFFFFF;
+        }
+        
+        .history-table tr:hover {
+            background-color: #2A2A45;
+        }
+        
+        .logout-btn {
+            background-color: transparent;
+            border: 1px solid #F28482;
+            color: #F28482;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .logout-btn:hover {
+            background-color: #F28482;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="upper">
+        <a id="ui" href="/">Home</a>
+        <a id="ui" href="/about">About</a>
+        <a id="ui" class="contact">Contact</a>
+        <p class="language">Language:</p>
+        <select id="selectLang">
+            <option selected id="selection" value="en">English</option>
+            <option id="selection" value="tr">Türkçe</option>
+            <option id="selection" value="az">Azərbaycanca</option>
+            <option id="selection" value="ru">Русский</option>
+        </select>
+        <button id="logout-btn" class="logout-btn">Logout</button>
+    </div>
+    
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <h1>Welcome, <span id="username">User</span>!</h1>
+            <div class="points-display">
+                <h2>Your CityPoints</h2>
+                <div class="points"><span id="user-points">0</span></div>
+                <p>Use your points for free transport and more!</p>
+            </div>
+        </div>
+        
+        <h2>Activities to Earn Points</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Traffic Safety Quiz</h3>
+                <p>Take a quiz about traffic safety rules and earn points for correct answers.</p>
+                <span class="points-badge">+20 points</span>
+                <button onclick="startQuiz()">Start Quiz</button>
+            </div>
+            
+            <div class="card">
+                <h3>Road Signs Challenge</h3>
+                <p>Test your knowledge of road signs and earn points for each correct identification.</p>
+                <span class="points-badge">+15 points</span>
+                <button onclick="startSignsChallenge()">Start Challenge</button>
+            </div>
+            
+            <div class="card">
+                <h3>Safe Crossing Report</h3>
+                <p>Report instances where you practiced safe road crossing in your neighborhood.</p>
+                <span class="points-badge">+10 points</span>
+                <button onclick="submitReport()">Submit Report</button>
+            </div>
+        </div>
+        
+        <h2>Use Your Points</h2>
+        <div class="card-container">
+            <div class="card">
+                <h3>Free Bus Ticket</h3>
+                <p>Get a free bus ticket valid for one journey on any city bus.</p>
+                <span class="points-badge">-50 points</span>
+                <button onclick="redeemBusTicket()">Redeem</button>
+            </div>
+            
+            <div class="card">
+                <h3>Metro Day Pass</h3>
+                <p>Get a day pass for unlimited metro rides within the city.</p>
+                <span class="points-badge">-100 points</span>
+                <button onclick="redeemMetroPass()">Redeem</button>
+            </div>
+            
+            <div class="card">
+                <h3>Weekly Transport Pass</h3>
+                <p>Get a week-long pass for all public transportation in the city.</p>
+                <span class="points-badge">-300 points</span>
+                <button onclick="redeemWeeklyPass()">Redeem</button>
+            </div>
+        </div>
+        
+        <div class="history-section">
+            <h2>Activity History</h2>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Activity</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody id="history-tbody">
+                    <!-- History will be populated dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        // Function to load user data
+        async function loadUserData() {
+            try {
+                const response = await fetch('/api/user/data');
+                const data = await response.json();
+                
+                if (data.success) {
+                    document.getElementById('username').textContent = data.username;
+                    document.getElementById('user-points').textContent = data.points;
+                    
+                    // Populate history if available
+                    if (data.history && data.history.length > 0) {
+                        const historyTable = document.getElementById('history-tbody');
+                        historyTable.innerHTML = '';
+                        
+                        data.history.forEach(item => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${new Date(item.date).toLocaleDateString()}</td>
+                                <td>${item.activity}</td>
+                                <td>${item.points > 0 ? '+' + item.points : item.points}</td>
+                            `;
+                            historyTable.appendChild(row);
+                        });
+                    }
+                } else {
+                    // Redirect to login if not authenticated
+                    window.location.href = '/login';
+                }
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        }
+        
+        // Load user data when page loads
+        window.addEventListener('DOMContentLoaded', loadUserData);
+        
+        // Logout function
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            try {
+                await fetch('/api/logout', { method: 'POST' });
+                window.location.href = '/login';
+            } catch (error) {
+                console.error('Error logging out:', error);
+            }
+        });
+        
+        // Functions for activities (to be implemented)
+        function startQuiz() {
+            alert('Quiz feature coming soon!');
+        }
+        
+        function startSignsChallenge() {
+            alert('Road Signs Challenge coming soon!');
+        }
+        
+        function submitReport() {
+            alert('Safe Crossing Report feature coming soon!');
+        }
+        
+        // Functions for redeeming points
+        function redeemBusTicket() {
+            redeemPoints(50, 'Bus Ticket');
+        }
+        
+        function redeemMetroPass() {
+            redeemPoints(100, 'Metro Day Pass');
+        }
+        
+        function redeemWeeklyPass() {
+            redeemPoints(300, 'Weekly Transport Pass');
+        }
+        
+        // Function to redeem points
+        async function redeemPoints(amount, item) {
+            const currentPoints = parseInt(document.getElementById('user-points').textContent);
+            
+            if (currentPoints < amount) {
+                alert('Not enough points!');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/redeem', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ amount, item })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert(`Successfully redeemed ${item}!`);
+                    loadUserData(); // Refresh user data
+                } else {
+                    alert(data.message || 'Failed to redeem points');
+                }
+            } catch (error) {
+                console.error('Error redeeming points:', error);
+                alert('An error occurred while redeeming points');
+            }
+        }
+    </script>
+</body>
+</html>
