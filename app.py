@@ -1,217 +1,79 @@
-from flask import Flask, request, jsonify, render_template, session, redirect, url_for
-import json
+# app.py
+from flask import Flask, render_template, redirect, url_for, request, flash
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
+from datetime import datetime
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.urandom(24)
 
-@app.route("/")
-def getstarted_page():
-    return render_template("client/getstarted.html")
+# Simple user database for demonstration
+users = {}
 
-@app.route("/about")
-def about_page():
-    return render_template("client/about.html")
+# Flask-Login setup
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
 
-@app.route("/api/login", methods=["POST"])
+class User(UserMixin):
+    def __init__(self, id, username, password_hash):
+        self.id = id
+        self.username = username
+        self.password_hash = password_hash
+
+@login_manager.user_loader
+def load_user(user_id):
+    return users.get(user_id)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    data = request.json
-    username = data.get('username')
-    password = data.get('password')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        user_id = next((id for id, user in users.items() if user.username == username), None)
+        
+        if user_id and check_password_hash(users[user_id].password_hash, password):
+            login_user(users[user_id])
+            return redirect(url_for('index'))
+        flash('Invalid username or password')
     
-    # Load user database
-    with open('db.json', 'r') as f:
-        users = json.load(f)
-    
-    # Check if user exists and password is correct
-    if username in users and users[username]['password'] == password:
-        session['user'] = username
-        return jsonify({
-            'success': True,
-            'points': users[username]['points']
-        })
-    else:
-        return jsonify({
-            'success': False,
-            'message': 'Invalid username or password'
-        }), 401
+    return render_template('login.html')
 
-@app.route("/api/signup", methods=["POST"])
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    data = request.json
-    username = data.get('username')
-    password = data.get('password')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        
+        # Check if username exists
+        if any(user.username == username for user in users.values()):
+            flash('Username already exists')
+            return render_template('signup.html')
+        
+        # Create new user
+        user_id = str(len(users) + 1)
+        users[user_id] = User(user_id, username, generate_password_hash(password))
+        
+        flash('Account created successfully! Please log in.')
+        return redirect(url_for('login'))
     
-    # Load user database
-    with open('db.json', 'r') as f:
-        users = json.load(f)
-    
-    # Check if username already exists
-    if username in users:
-        return jsonify({
-            'success': False,
-            'message': 'Username already exists'
-        }), 400
-    
-    # Add new user
-    users[username] = {
-        'password': password,
-        'points': 100  # Starting points for new users
-    }
-    
-    # Save updated user database
-    with open('db.json', 'w') as f:
-        json.dump(users, f, indent=4)
-    
-    session['user'] = username
-    return jsonify({
-        'success': True,
-        'message': 'Account created successfully',
-        'points': 100
-    })
+    return render_template('signup.html')
 
-# Add these routes to your app.py file
-
-@app.route("/dashboard")
-def dashboard():
-    if 'user' not in session:
-        return redirect("/login")
-    return render_template("client/dashboard.html")
-
-@app.route("/api/user/data")
-def user_data():
-    if 'user' not in session:
-        return jsonify({
-            'success': False,
-            'message': 'Not authenticated'
-        }), 401
-    
-    username = session['user']
-    
-    # Load user database
-    with open('db.json', 'r') as f:
-        users = json.load(f)
-    
-    if username not in users:
-        return jsonify({
-            'success': False,
-            'message': 'User not found'
-        }), 404
-    
-    # Initialize history if it doesn't exist
-    if 'history' not in users[username]:
-        users[username]['history'] = []
-    
-    return jsonify({
-        'success': True,
-        'username': username,
-        'points': users[username]['points'],
-        'history': users[username].get('history', [])
-    })
-
-@app.route("/api/logout", methods=["POST"])
+@app.route('/logout')
+@login_required
 def logout():
-    session.pop('user', None)
-    return jsonify({
-        'success': True
-    })
+    logout_user()
+    return redirect(url_for('index'))
 
-@app.route("/api/redeem", methods=["POST"])
-def redeem_points():
-    if 'user' not in session:
-        return jsonify({
-            'success': False,
-            'message': 'Not authenticated'
-        }), 401
-    
-    username = session['user']
-    data = request.json
-    amount = data.get('amount', 0)
-    item = data.get('item', 'Unknown')
-    
-    # Load user database
-    with open('db.json', 'r') as f:
-        users = json.load(f)
-    
-    if username not in users:
-        return jsonify({
-            'success': False,
-            'message': 'User not found'
-        }), 404
-    
-    # Check if user has enough points
-    if users[username]['points'] < amount:
-        return jsonify({
-            'success': False,
-            'message': 'Not enough points'
-        }), 400
-    
-    # Deduct points
-    users[username]['points'] -= amount
-    
-    # Add to history
-    if 'history' not in users[username]:
-        users[username]['history'] = []
-    
-    users[username]['history'].append({
-        'date': datetime.datetime.now().isoformat(),
-        'activity': f'Redeemed {item}',
-        'points': -amount
-    })
-    
-    # Save updated user database
-    with open('db.json', 'w') as f:
-        json.dump(users, f, indent=4)
-    
-    return jsonify({
-        'success': True,
-        'points': users[username]['points']
-    })
-
-# Add an endpoint for activity completion
-@app.route("/api/activity/complete", methods=["POST"])
-def complete_activity():
-    if 'user' not in session:
-        return jsonify({
-            'success': False,
-            'message': 'Not authenticated'
-        }), 401
-    
-    username = session['user']
-    data = request.json
-    activity = data.get('activity', 'Unknown activity')
-    points = data.get('points', 0)
-    
-    # Load user database
-    with open('db.json', 'r') as f:
-        users = json.load(f)
-    
-    if username not in users:
-        return jsonify({
-            'success': False,
-            'message': 'User not found'
-        }), 404
-    
-    # Add points
-    users[username]['points'] += points
-    
-    # Add to history
-    if 'history' not in users[username]:
-        users[username]['history'] = []
-    
-    users[username]['history'].append({
-        'date': datetime.datetime.now().isoformat(),
-        'activity': activity,
-        'points': points
-    })
-    
-    # Save updated user database
-    with open('db.json', 'w') as f:
-        json.dump(users, f, indent=4)
-    
-    return jsonify({
-        'success': True,
-        'points': users[username]['points']
-    })
-    
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
