@@ -26,6 +26,11 @@ class User(UserMixin):
 def load_user(user_id):
     return users.get(user_id)
 
+# Pass current year to all templates
+@app.context_processor
+def inject_now():
+    return {'now': datetime.now()}
+
 @app.route('/')
 def index():
     return render_template('index.html')
